@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import LoginForm from "./login-form";
+import LoginUserForm from "./login-user-form";
 
 export default async function LoginPage() {
   // await new Promise((resolve) => {
@@ -8,7 +9,7 @@ export default async function LoginPage() {
   return (
     <>
       <Header />
-      <section className="bg-gray-600 min-h-screen grid place-items-center">
+      {/* <section className="bg-gray-600 min-h-screen grid place-items-center">
         <div className="w-full">
           <h1 className="text-4xl lg:text-6xl text-center font-[600] text-[#cbd5e1] mb-4">
             Welcome Back
@@ -18,7 +19,8 @@ export default async function LoginPage() {
           </h2>
           <LoginForm />
         </div>
-      </section>
+      </section> */}
+      <LoginUserForm />
     </>
   );
 }

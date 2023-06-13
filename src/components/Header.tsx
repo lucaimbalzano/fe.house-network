@@ -6,6 +6,7 @@ import useSession from "@/lib/useSession";
 import useStore from "@/store";
 import { apiLogoutUser } from "@/lib/services/login";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Header = () => {
   const store = useStore();
@@ -25,19 +26,20 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-white h-20">
-        <nav className="h-full flex justify-between container items-center">
-          <div>
+      <header className="bg-white h-15 p-1" >
+        <nav className="h-full flex justify-between container items-center lg:ml-4 shadow-sm">
+          <div className="flex justify-start">
             <Link href="/" className="text-ct-dark-600 text-2xl font-semibold">
-              TEST
+            <Image src="/img/house-net.png" width="40" height="40" alt="house-netowork"/>
+
             </Link>
           </div>
           <ul className="flex items-center gap-4">
-            <li>
+            {/* <li>
               <Link href="/" className="text-ct-dark-600">
                 Home
               </Link>
-            </li>
+            </li> */}
             {!user && (
               <>
                 <li>
@@ -67,7 +69,7 @@ const Header = () => {
           </ul>
         </nav>
       </header>
-      <div className="pt-4 pl-2 bg-ct-blue-600 fixed">
+      <div className="pt-4 pl-2 bg-gray-600 fixed">
         {store.requestLoading && <Spinner color="text-ct-yellow-600" />}
       </div>
     </>
