@@ -30,4 +30,9 @@ html {
         }
         
     }
+
+    .space-between-header{
+        margin-top: 3.5rem !important;
+        background-color: brown;
+    }
 }

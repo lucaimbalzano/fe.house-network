@@ -43,7 +43,6 @@ export default function RegisterUserForm() {
   }, [isSubmitSuccessful]);
 
   async function RegisterUserFunction(credentials: RegisterUserInput) {
-    console.log('RegisterUserFunc')
     store.setRequestLoading(true);
     try {
       const user = await apiRegisterUser(JSON.stringify(credentials));

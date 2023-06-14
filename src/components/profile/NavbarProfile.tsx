@@ -1,53 +1,61 @@
 "use client"
 
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { FilteredUser } from '@/lib/types';
+import { RiDashboardFill } from "react-icons/ri"
+import { BiMessageSquareDetail } from 'react-icons/bi'
+import { IoSettingsSharp } from 'react-icons/io5'
+import { CgMenuGridR } from 'react-icons/cg'
 
-import Link from 'next/link'
-import React from 'react'
-import { useState } from 'react';
-
-export default function NavbarProfile() {
-
-  const [active, setActive] = useState(true);
-  const handleClick = ():void => {
-    console.log('click');
+interface NavbarProfileProps {
+  user: FilteredUser;
 }
 
+export default function NavbarProfile({ user }: NavbarProfileProps) {
+    const [isOpen, setIsOpen] = useState(false);
+
+
+    const handleToggle = () => {
+      console.log(isOpen);
+      setIsOpen(!isOpen);
+    };
+  
   return (
-    <div>
-  <nav className='flex flex-col items-start bg-green-400 p-3 fixed top-15 left-0 h-full mt-48'>
-   <Link className='  items-center p-2 mr-4 ' href='/'>
-            <svg
-              viewBox='0 0 24 24'
-              xmlns='http://www.w3.org/2000/svg'
-              className='fill-current text-white h-8 w-8 mr-2'
-            >
-              <path d='M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z' />
-            </svg>
-        </Link>
-        <button
-          className=' p-3 hover:bg-green-600 rounded lg:hidden text-white ml-auto hover:text-white outline-none'
-          onClick={handleClick}
-        >
-        </button>
-        {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
-        <div
-          className={`${
-            active ? '' : 'hidden'
-          }   w-full lg:  lg:flex-col lg:w-auto`}
-        >
-          <div className='lg:  lg:flex-col lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto'>
-          <Link href='/' className='lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white focus:outline-none'>
-            Home
-          </Link>
-          <Link href='/' className='lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white focus:outline-none'>
-            Message
-          </Link>
-          <Link href='/' className='lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white focus:outline-none'>
-            Service
-          </Link>
-          </div>
+   <>
+      <div className="md:flex flex-col md:flex-row md:min-h-screen w-full">
+      <div onClick={() => setIsOpen(false)} className="flex flex-col w-full md:w-64 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0">
+        <div className="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between sm:flex-col">
+          <a href="#" className="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
+            House NET
+          </a>
+          <button
+            className="rounded-lg md:hidden rounded-lg focus:outline-none focus:shadow-outline"
+            onClick={handleToggle}
+          >
+           
+            {isOpen && <CgMenuGridR/>}
+          </button>
         </div>
-      </nav>
+        <nav className={`flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto ${isOpen ? 'block' : 'hidden'}`}>
+          <a className="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Blog</a>
+          <a className="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Portfolio</a>
+          <a className="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">About</a>
+          <a className="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Contact</a>
+    
+        </nav>
+        <nav className={`flex-grow md:hidden px-4 pb-4 md:pb-0 md:overflow-y-auto ${isOpen ? 'hidden' : 'block'}`}>
+          <a className=" flex-inline block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"><RiDashboardFill/> Dashboard</a>
+          <a className="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"><BiMessageSquareDetail/> Messages</a>
+          <a className="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"><IoSettingsSharp/> Settings</a>
+        </nav>
+      </div>
+      <div className="flex flex-col flex-1 h-full overflow-x-hidden overflow-y-auto bg-gray-100">
+        {/* Content */}
+        content?
+      </div>
     </div>
-  )
+   </>
+    
+  );
 }
