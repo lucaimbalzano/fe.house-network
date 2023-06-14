@@ -26,20 +26,18 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-white h-15 p-1" >
-        <nav className="h-full flex justify-between container items-center lg:ml-4 shadow-sm">
+    <div>
+      
+    </div>
+      <header className="bg-white h-15 p-1 fixed top-0 left-0 w-full flex justify-between container items-center max-w-full mr-8">
           <div className="flex justify-start">
             <Link href="/" className="text-ct-dark-600 text-2xl font-semibold">
             <Image src="/img/house-net.png" width="40" height="40" alt="house-netowork"/>
 
             </Link>
           </div>
-          <ul className="flex items-center gap-4">
-            {/* <li>
-              <Link href="/" className="text-ct-dark-600">
-                Home
-              </Link>
-            </li> */}
+          <div className="mr-8 sm:mr-6">
+          <ul className="flex items-center gap-4 ul-navbar-mr-4">
             {!user && (
               <>
                 <li>
@@ -67,7 +65,8 @@ const Header = () => {
               </>
             )}
           </ul>
-        </nav>
+          </div>
+          
       </header>
       <div className="pt-4 pl-2 bg-gray-600 fixed">
         {store.requestLoading && <Spinner color="text-ct-yellow-600" />}

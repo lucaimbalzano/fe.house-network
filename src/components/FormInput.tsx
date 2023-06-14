@@ -5,6 +5,7 @@ type FormInputProps = {
   label: string;
   name: string;
   type?: string;
+
 };
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -18,13 +19,13 @@ const FormInput: React.FC<FormInputProps> = ({
   } = useFormContext();
   return (
     <div className="">
-      <label htmlFor={name} className="block text-ct-blue-600 mb-3">
+      {/* <label htmlFor={name} className="block text-ct-blue-600 mb-3">
         {label}
-      </label>
+      </label> */}
       <input
         type={type}
-        placeholder=" "
-        className="block w-full rounded-2xl appearance-none focus:outline-none py-2 px-4"
+        placeholder={label}
+        className="pl-2 outline-none border-none w-full"
         {...register(name)}
       />
       {errors[name] && (
