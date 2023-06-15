@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect } from 'react'
-import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import { Sidebar, Menu, MenuItem, SubMenu, sidebarClasses } from 'react-pro-sidebar';
 import { RiDashboardFill } from "react-icons/ri"
 import { BiMessageSquareDetail } from 'react-icons/bi'
 import { IoSettingsSharp } from 'react-icons/io5'
@@ -28,8 +28,15 @@ const SideBarProfile: React.FC<SideBarProfileProps> = ({ setSelectedPage }) => {
       };
 
   return (
-    <div className='flex h-screen min-h-full'>
-    <Sidebar collapsed={collapsed} transitionDuration={1000} onClick={() => setCollapsed(!collapsed)}>
+    <div className='flex h-screen min-h-full fixed'>
+    <Sidebar 
+      rootStyles={{
+        [`.${sidebarClasses.container}`]: {
+          backgroundColor: 'red',
+          collapsedWidth: "60px",
+        },
+      }}
+    collapsed={collapsed} transitionDuration={1000} onClick={() => setCollapsed(!collapsed)}>
       <Menu>
       {!collapsed ? (
             <>

@@ -61,7 +61,7 @@ export default async function ProfilePage() {
         <div className="">
           <SideBarProfile setSelectedPage={setSelectedPage} />
         </div>
-        <div className="max-w-4xl mx-auto bg-ct-dark-100 rounded-md h-[20rem] flex justify-center items-center">
+        <div className="bg-ct-dark-100 h-screen flex justify-center items-center w-full">
           {renderPageContent()}
         </div>
         </div>

@@ -28,11 +28,18 @@ html {
         .mr-0 {
             margin-right: 6px !important;
         }
+
+        .css-s9u0b.ps-collapsed {
+            width: 60px !important;
+            min-width: 58px !important;
+            /* position: fixed !important;
+            min-height: 100hv !important; */
+          }
         
     }
 
     .space-between-header{
-        margin-top: 3.5rem !important;
+        margin-top: 3rem !important;
         background-color: brown;
     }
 }
