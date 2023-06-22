@@ -30,7 +30,7 @@ const Header = () => {
       
     </div>
       <header className="bg-white h-15 p-1 fixed top-0 left-0 w-full flex justify-between container items-center max-w-full mr-8">
-          <div className="flex justify-start">
+          <div className="flex justify-start extra-small-hidden-logo">
             <Link href="/" className="text-ct-dark-600 text-2xl font-semibold">
             <Image src="/img/house-net.png" width="40" height="40" alt="house-netowork"/>
 

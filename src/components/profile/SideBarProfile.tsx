@@ -15,7 +15,18 @@ type SideBarProfileProps = {
   
 
 const SideBarProfile: React.FC<SideBarProfileProps> = ({ setSelectedPage }) => {
-    const [collapsed, setCollapsed] = React.useState(false);
+    const [collapsed, setCollapsed] = React.useState(true);
+    const [hideSideBar, setHideSideBar] = React.useState(false)
+    const [hamburgerClicked, setHamburgerClicked] = React.useState(false);
+  
+    const handleMenuClick = (page: string) => {
+      setSelectedPage(page);
+    };
+  
+    const toggleHamburger = () => {
+      setHamburgerClicked(!hamburgerClicked);
+      setHideSideBar(!hideSideBar);
+    };
     const handleMenuSelected = useEffect(() => {
       return () => {
         console.log('hel')
@@ -23,16 +34,14 @@ const SideBarProfile: React.FC<SideBarProfileProps> = ({ setSelectedPage }) => {
     }, []);
 
 
-    const handleMenuClick = (page: string) => {
-        setSelectedPage(page);
-      };
 
   return (
-    <div className='flex h-screen min-h-full fixed'>
-    <Sidebar 
+    <>
+      <div className={`flex h-screen min-h-full fixed ${hideSideBar ? 'hidden' : ''}`}>
+   <Sidebar 
       rootStyles={{
         [`.${sidebarClasses.container}`]: {
-          backgroundColor: 'red',
+          backgroundColor: 'white',
           collapsedWidth: "60px",
         },
       }}
@@ -68,6 +77,8 @@ const SideBarProfile: React.FC<SideBarProfileProps> = ({ setSelectedPage }) => {
       </Menu>
     </Sidebar>
   </div>
+    </>
+
   )
 }
 

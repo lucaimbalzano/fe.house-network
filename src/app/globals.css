@@ -34,9 +34,32 @@ html {
             min-width: 58px !important;
             /* position: fixed !important;
             min-height: 100hv !important; */
-          }
+        }
+
+        .css-v1hnsi.ps-collapsed {
+            width: 66px !important;
+            min-width: 66px !important;
+        }
+
+        .extra-small-hidden-logo {
+            display: none;
+        }
         
     }
+    
+
+    @media (max-width: 375px) {
+        .extra-small-container {
+            width: 360px !important; 
+            margin-right:  10px;
+        }
+
+        .small-cards-width {
+            width: 240px;
+            height: 150px;
+        }
+    }
+    
 
     .space-between-header{
         margin-top: 3rem !important;
