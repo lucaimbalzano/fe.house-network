@@ -13,9 +13,20 @@ export async function GET(req: NextRequest) {
   }
 
   const user = await prisma.user.findUnique({ where: { id: userId } });
-
-  return NextResponse.json({
-    status: "success",
-    data: { user: { ...user, password: undefined } },
-  });
+  const origin = req.headers.get('origin')
+  return new NextResponse(
+    JSON.stringify({
+      status: "success",
+      data: { user: { ...user, password: undefined } }
+    }),
+    {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": origin || "*"
+      }
+    }
+  );
+  
+  
 }

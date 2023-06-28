@@ -1,4 +1,4 @@
-import { UserLoginResponse  } from "../types";
+import { UserLoginResponse  } from "../types/userTypes";
 import { handleResponse } from "./utils"
 
 const SERVER_ENDPOINT = process.env.SERVER_ENDPOINT || "http://localhost:3000";

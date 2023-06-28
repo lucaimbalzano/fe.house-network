@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+
+//REGISTRATION VALIDATOR
 export const RegisterUserSchema = z
   .object({
     name: z
@@ -32,6 +34,10 @@ export const RegisterUserSchema = z
     message: "Passwords do not match",
   });
 
+
+
+
+//LOGIN VALIDATOR
 export const LoginUserSchema = z.object({
   email: z
     .string({
@@ -46,6 +52,10 @@ export const LoginUserSchema = z.object({
     .min(1, "Password is required")
     .min(8, "Password must be at least 8 characters"),
 });
+
+
+
+
 
 export type LoginUserInput = z.infer<typeof LoginUserSchema>;
 export type RegisterUserInput = z.infer<typeof RegisterUserSchema>;

@@ -36,6 +36,7 @@ export async function POST(req: NextRequest) {
       maxAge: tokenMaxAge,
     };
 
+    const origin = req.headers.get('origin')
     const response = new NextResponse(
       JSON.stringify({
         status: "success",
@@ -43,7 +44,8 @@ export async function POST(req: NextRequest) {
       }),
       {
         status: 200,
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": origin || '*' },
       }
     );
 

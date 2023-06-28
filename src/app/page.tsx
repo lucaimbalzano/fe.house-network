@@ -1,16 +1,17 @@
 import Header from "@/components/Header";
+import HomepagePresentation from "./homepage/homepagePresentation";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <section className="bg-gray-600 min-h-screen pt-20">
-        <div className="max-w-4xl mx-auto bg-ct-dark-100 rounded-md h-[20rem] flex justify-center items-center">
-          <p className="text-3xl font-semibold">
-            HOUSE-NET
-          </p>
+        <div className="artFactory-navbar-height-fixed">
+          <HomepagePresentation />
         </div>
-      </section>
+        
+    
     </>
   );
 }
+
+

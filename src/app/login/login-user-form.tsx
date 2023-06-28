@@ -23,10 +23,11 @@ export default function LoginUserForm() {
       resolver: zodResolver(LoginUserSchema),
     });
   
+    
     const {
-      reset,
-      handleSubmit,
-      formState: { isSubmitSuccessful },
+      reset, // è una funzione che ripristina il form ai valori iniziali
+      handleSubmit, //  è la funzione che gestisce la logica di invio del form
+      formState: { isSubmitSuccessful }, // è un oggetto che contiene vari stati relativi al form, come ad esempio isSubmitSuccessful, che indica se l'invio del form è avvenuto con successo.
     } = methods;
   
     useEffect(() => {
@@ -84,7 +85,7 @@ export default function LoginUserForm() {
             </div>
             <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
                 <FormProvider {...methods}>
-                <form className="bg-white" onSubmit={handleSubmit(onSubmitHandler)}>
+                <form className="bg-white mt-8" onSubmit={handleSubmit(onSubmitHandler)}>
                     <div className='w-full flex-col flex justify-center items-center'>
                         
                         <div className='flex flex-row'><h1 className="text-[#02b0cd] font-bold text-2xl mb-1 custom-smaller-width mr-0">Log</h1>
@@ -112,7 +113,10 @@ export default function LoginUserForm() {
                         >
                         Login
                         </LoadingButton>
-                        <span className="text-sm ml-2 hover:text-gray-400    cursor-pointer">Forgot Password ?</span>
+                        <span className="text-sm ml-2 hover:text-gray-400  mt-3  cursor-pointer">Forgot Password ?</span>
+                        <Link href="/register" className="text-gray-400 hover:text-ct-dark-600 mt-3 text-sm">
+                            Sign new account
+                        </Link>
                     </div>
                 </form>
                 </FormProvider>

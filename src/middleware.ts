@@ -12,6 +12,10 @@ let redirectToLogin = false;
 export async function middleware(req: NextRequest) {
   let token: string | undefined;
 
+
+
+//1) FASE IN CUI NON SI PUO ACCEDERE ALLA LOGIN PAGE - USER - LOGOUT
+  // L'uso di ?. è un operatore di opzionalità di accesso sicuro (TSX3.7), consente di accedere a proprietà o metodi di un oggetto solo se l'oggetto stesso è definito e non è null o undefined. Se null o undefined then return undefined senza generare un'eccezione.
   if (req.cookies.has("token")) {
     token = req.cookies.get("token")?.value;
   } else if (req.headers.get("Authorization")?.startsWith("Bearer ")) {
@@ -32,7 +36,23 @@ export async function middleware(req: NextRequest) {
     );
   }
 
+
+
+
+//2) FASE IN CUI SI PUO ACCEDERE e RITORNO DELLUTENTE VERIFICATO 
   const response = NextResponse.next();
+  const allowedOrigins = process.env.NODE_ENV === 'production' ? ['https://www.site.com'] : ['http://localhost"3000']
+  const origin = req.headers.get('origin')
+
+  if (origin && !allowedOrigins.includes(origin)){
+    return new NextResponse(null, {
+      status: 400,
+      statusText: "Bad request",
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+  }
 
   try {
     if (token) {
@@ -51,9 +71,9 @@ export async function middleware(req: NextRequest) {
     );
   }
 
-  const authUser = (req as AuthenticatedRequest).user;
+  const authUser = (req as AuthenticatedRequest).user; 
 
-  if (!authUser) {
+  if (!authUser) {  
     return NextResponse.redirect(
       new URL(
         `/login?${new URLSearchParams({
@@ -72,6 +92,8 @@ export async function middleware(req: NextRequest) {
   return response;
 }
 
-export const config = {
+// middleware sarà eseguito per i percorsi 
+export const config = { 
   matcher: ["/profile", "/login", "/api/users/:path*", "/api/auth/logout"],
 };
+

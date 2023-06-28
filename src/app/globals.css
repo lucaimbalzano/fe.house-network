@@ -65,4 +65,8 @@ html {
         margin-top: 3rem !important;
         background-color: brown;
     }
+
+    .artFactory-navbar-height-fixed{
+        @apply mt-[48px] !important;
+    }
 }

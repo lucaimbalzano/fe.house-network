@@ -1,4 +1,4 @@
-import { FilteredUser, UserResponse } from "../types";
+import { FilteredUser, UserResponse } from "../types/userTypes";
 import { handleResponse } from "./utils";
 
 

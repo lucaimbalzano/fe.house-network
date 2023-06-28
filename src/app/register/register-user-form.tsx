@@ -81,7 +81,7 @@ export default function RegisterUserForm() {
     </div>
     <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
         <FormProvider {...methods}>
-        <form className="bg-white" onSubmit={handleSubmit(onSubmitHandler)}>
+        <form className="bg-white mt-8" onSubmit={handleSubmit(onSubmitHandler)}>
             <div className='w-full flex-col flex justify-center items-center'>
                 
                 <div className='flex flex-row'><h1 className="text-[#02b0cd] font-bold text-2xl mb-1 custom-smaller-width mr-0">Regist</h1>
@@ -116,7 +116,10 @@ export default function RegisterUserForm() {
                 >
                   Register
                 </LoadingButton>
-                <span className="text-sm ml-2 hover:text-gray-400 cursor-pointer">Forgot Password ?</span>
+                <span className="text-sm ml-2 hover:text-gray-400  mt-3 cursor-pointer">Forgot Password ?</span>
+                        <Link href="/login" className="text-gray-400 hover:text-ct-dark-600 mt-3 text-sm">
+                    Already an account
+                  </Link>
             </div>
         </form>
         </FormProvider>

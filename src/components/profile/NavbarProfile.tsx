@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { FilteredUser } from '@/lib/types';
+import { FilteredUser } from '@/lib/types/userTypes';
 import { RiDashboardFill } from "react-icons/ri"
 import { BiMessageSquareDetail } from 'react-icons/bi'
 import { IoSettingsSharp } from 'react-icons/io5'

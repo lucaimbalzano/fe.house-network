@@ -7,6 +7,7 @@ import useStore from "@/store";
 import { apiLogoutUser } from "@/lib/services/login";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import {BiLogInCircle, BiUserCircle} from "react-icons/bi"
 
 const Header = () => {
   const store = useStore();
@@ -40,13 +41,13 @@ const Header = () => {
           <ul className="flex items-center gap-4 ul-navbar-mr-4">
             {!user && (
               <>
-                <li>
+                {/* <li>
                   <Link href="/register" className="text-ct-dark-600">
                     Register
                   </Link>
-                </li>
-                <li>
-                  <Link href="/login" className="text-ct-dark-600">
+                </li> */}
+                <li className="px-4 py-2 font-semibold text-sm shadow-sm rounded-md bg-[#01bed2] text-white hover:text-[#166370] hover:bg-slate-400">
+                  <Link href="/login">
                     Login
                   </Link>
                 </li>
@@ -55,12 +56,12 @@ const Header = () => {
             {user && (
               <>
                 <li>
-                  <Link href="/profile" className="text-ct-dark-600">
-                    Profile
+                  <Link href="/profile" className="text-ct-dark-600 hover:text-[#d1dade] text-2xl">
+                  <BiUserCircle />
                   </Link>
                 </li>
-                <li className="cursor-pointer" onClick={handleLogout}>
-                  Logout
+                <li className="cursor-pointer hover:text-[#d1dade] text-2xl" onClick={handleLogout}>
+                  <BiLogInCircle />
                 </li>
               </>
             )}
@@ -68,9 +69,9 @@ const Header = () => {
           </div>
           
       </header>
-      <div className="pt-4 pl-2 bg-gray-600 fixed">
+      {/* <div className="pt-4 pl-2 bg-gray-600 fixed">
         {store.requestLoading && <Spinner color="text-ct-yellow-600" />}
-      </div>
+      </div> */}
     </>
   );
 };

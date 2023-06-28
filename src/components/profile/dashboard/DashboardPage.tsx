@@ -13,7 +13,6 @@ export default function DashboardPage() {
   return (
     <div className='ml-18 p-10'>
      <PageScrape />
-          
     <div className='flex justify-between;'>
       {/* <Cards /> */}
       </div>

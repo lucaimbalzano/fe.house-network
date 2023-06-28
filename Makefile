@@ -1,5 +1,5 @@
 commands:
-	pnpm create next-app nextjs13-user-signin-signup
+	pnpm create next-app auth.house-network
 	pnpm prisma init --datasource-provider sqlite
 	pnpm prisma migrate dev --name init
 	pnpm prisma migrate reset
