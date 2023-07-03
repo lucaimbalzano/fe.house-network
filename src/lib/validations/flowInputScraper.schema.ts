@@ -2,10 +2,10 @@ import { z } from "zod"
 
 export const FlowInputSchema =  z.object({
     totNumPage: z.string({ required_error: 'Total Number Page is required'})
-                .min(0, "At least a Number is required"),
+                .min(1, "At least a Number is required"),
     totNumCards: z.string({ required_error: 'Total Number Cards is required'})
-                .min(0, "At least a Number is required"),
-    contract: z.string({ required_error: 'At least a contract is Required' }),
+                .min(1, "At least a Number is required"),
+    contract: z.string({ required_error: 'At least a contract is Required' }).nonempty({ message: 'Contract is required'}),
     url: z
     .string({ required_error: 'Url is required' })
     .url({ message: "Invalid URL" }),
@@ -13,8 +13,8 @@ export const FlowInputSchema =  z.object({
                 .min(1, "Full username is required"),
     password: z.string({ required_error: 'password is required'})
                 .min(1, "password is required"),
-    message: z.boolean({ required_error: 'Message is required'}),
-    messageWebSite: z.boolean({ required_error: 'Message is required'})
+    message: z.boolean({ required_error: 'Message is required'}).optional(),
+    messageWebSite: z.boolean({ required_error: 'Message is required'}).optional()
 })
  
 

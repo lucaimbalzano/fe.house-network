@@ -43,6 +43,7 @@ export default function RegisterUserForm() {
   }, [isSubmitSuccessful]);
 
   async function RegisterUserFunction(credentials: RegisterUserInput) {
+    console.log('credentials-> RegisterUserFunction: '+credentials)
     store.setRequestLoading(true);
     try {
       const user = await apiRegisterUser(JSON.stringify(credentials));
@@ -61,6 +62,7 @@ export default function RegisterUserForm() {
   }
 
   const onSubmitHandler: SubmitHandler<RegisterUserInput> = (values) => {
+    console.log('values->onSubmitHandler: '+values);
     RegisterUserFunction(values);
   };
 

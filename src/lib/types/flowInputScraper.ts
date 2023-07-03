@@ -11,9 +11,16 @@ export interface FlowInputScraper {
     refreshSearch : {
         poolPage: string,
         poolCards: string,
-            perTimeRange: number
+        perTimeRange: number
     },
     message: Boolean,
     messageWebSite: Boolean
 }
  
+
+export interface FlowInputScraperResponse {
+    status: string;
+    data: {
+      flowInputScraper: FlowInputScraper;
+    };
+  }

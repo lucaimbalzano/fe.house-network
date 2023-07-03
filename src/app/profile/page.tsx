@@ -59,7 +59,7 @@ export default async function ProfilePage() {
         <div className="space-between-header" />
         <div className="flex">
         <div className="">
-          <SideBarProfile setSelectedPage={setSelectedPage} />
+          {/* <SideBarProfile setSelectedPage={setSelectedPage} /> */}
         </div>
         <div className="ml-8 bg-ct-dark-100 h-screen flex justify-center w-full extra-small-container">
           {renderPageContent()}
