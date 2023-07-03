@@ -1,6 +1,7 @@
 "use client";
 
 import { FilteredUser } from "@/lib/types/userTypes";
+import { FlowInputScraper } from "@/lib/types/flowInputScraper";
 import { create } from "zustand";
 
 type Store = {
@@ -9,6 +10,8 @@ type Store = {
   setAuthUser: (user: FilteredUser | null) => void;
   setRequestLoading: (isLoading: boolean) => void;
   reset: () => void;
+  FlowInputScraper : FlowInputScraper | null;
+  setFlowInputScraper : (flowInputScraper : FlowInputScraper | null) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -18,6 +21,8 @@ const useStore = create<Store>((set) => ({
   setRequestLoading: (isLoading) =>
     set((state) => ({ ...state, requestLoading: isLoading })),
   reset: () => set({ authUser: null, requestLoading: false }),
+  FlowInputScraper: null,
+  setFlowInputScraper: (flowInputScraper) => set((state) => ({ ...state, flowInputScraper: flowInputScraper}))
 }));
 
 export default useStore;

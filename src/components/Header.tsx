@@ -51,12 +51,12 @@ const Header = () => {
             {user && (
               <>
                 <li>
-                  <Link href="/profile" className="text-ct-dark-600 hover:text-[#d1dade] text-2xl">
-                  <BiUserCircle />
+                  <Link href="/profile" className="text-[#07adbc] hover:text-[#d1dade] text-2xl">
+                  <BiUserCircle className="text-[#07adbc] hover:text-[#d1dade] " />
                   </Link>
                 </li>
-                <li className="cursor-pointer hover:text-[#d1dade] text-2xl" onClick={handleLogout}>
-                  <BiLogInCircle />
+                <li className="cursor-pointer text-[#07adbc] hover:text-[#d1dade] text-2xl" onClick={handleLogout}>
+                  <BiLogInCircle className="text-[#07adbc] hover:text-[#d1dade] " />
                 </li>
               </>
             )}

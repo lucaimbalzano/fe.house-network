@@ -13,13 +13,14 @@ import MessagesPage from "@/components/profile/messages/MessagesPage";
 // import NavbarProfile from "@/components/profile/NavbarProfile";
 
 export default async function ProfilePage() {
-  // const cookieStore = cookies();
-  // const token = cookieStore.get("token");
-
-  // const user = await apiGetAuthUser(token?.value);
+  
   const [selectedPage, setSelectedPage] = useState('dashboard');
 
 
+// const cookieStore = cookies();
+  // const token = cookieStore.get("token");
+
+  // const user = await apiGetAuthUser(token?.value);
   // useEffect(() => {
   //   const fetchUser = async () => {
   //     const cookieStore = await import("next/headers");
@@ -34,7 +35,6 @@ export default async function ProfilePage() {
 
   //   fetchUser();
   // }, []);
-
 
 
   // Render the appropriate page content based on the selectedPage state
@@ -61,7 +61,7 @@ export default async function ProfilePage() {
         <div className="">
           {/* <SideBarProfile setSelectedPage={setSelectedPage} /> */}
         </div>
-        <div className="ml-8 bg-ct-dark-100 h-screen flex justify-center w-full extra-small-container">
+        <div className="bg-ct-dark-100 h-screen flex justify-center w-full extra-small-container">
           {renderPageContent()}
         </div>
         </div>

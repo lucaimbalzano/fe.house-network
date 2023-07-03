@@ -13,18 +13,17 @@ export const FlowInputSchema =  z.object({
                 .min(1, "Full username is required"),
     password: z.string({ required_error: 'password is required'})
                 .min(1, "password is required"),
+
+    refreshSearch: z.object({
+        poolPage: z.string({ required_error: 'Pool of page to refresh is required' }).min(1, "At least a Number is required").optional(),
+        poolCards: z.string({ required_error: 'Pool of cards to refresh is required' }).min(1, "At least a Number is required").optional(),
+        perTimeRange: z.string({ required_error: 'Time range to scrape is required' }).min(1).max(10000).optional(),
+    })
+    .optional(),
+
     message: z.boolean({ required_error: 'Message is required'}).optional(),
     messageWebSite: z.boolean({ required_error: 'Message is required'}).optional()
 })
- 
-
-export const RefreshSearchSchema = z.object({
-            poolPage: z.string({ required_error: 'Pool of page to refresh is required'}),
-            poolCards: z.string({ required_error: 'Pool of cards to refresh is required'}),
-            perTimeRange: z.number({ required_error: 'Pool of page to refresh is required'}),
-})
-
 
 
 export type FlowInputScraper = z.infer<typeof FlowInputSchema>;
-export type RefreshSearch = z.infer<typeof RefreshSearchSchema>;

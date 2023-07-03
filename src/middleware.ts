@@ -41,7 +41,7 @@ export async function middleware(req: NextRequest) {
 
 //2) FASE IN CUI SI PUO ACCEDERE e RITORNO DELLUTENTE VERIFICATO 
   const response = NextResponse.next();
-  const allowedOrigins = process.env.NODE_ENV === 'production' ? ['https://www.site.com'] : ['http://localhost"3000']
+  const allowedOrigins = process.env.NODE_ENV === 'production' ? ['https://www.site.com'] : ['http://localhost"3000', 'http://127.0.0.1:8000']
   const origin = req.headers.get('origin')
 
   if (origin && !allowedOrigins.includes(origin)){
@@ -49,7 +49,8 @@ export async function middleware(req: NextRequest) {
       status: 400,
       statusText: "Bad request",
       headers: {
-        'Content-Type' : 'application/json'
+        'Content-Type' : 'application/json',
+        'Access-Control-Allow-Headers' : '*'
       }
     })
   }
@@ -94,6 +95,6 @@ export async function middleware(req: NextRequest) {
 
 // middleware sarà eseguito per i percorsi 
 export const config = { 
-  matcher: ["/profile", "/login", "/api/users/:path*", "/api/auth/logout"],
+  matcher: ["/profile", "/login", "/api/users/:path*", "/api/auth/logout",],
 };
 
