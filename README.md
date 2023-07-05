@@ -1,6 +1,10 @@
-# auth.house-network <img src="https://user-images.githubusercontent.com/45575898/184987964-64477382-1df1-4512-9b77-9d6ec0eef470.jpg" width="60" height="60" />
+# fe.house-network <img src="https://user-images.githubusercontent.com/45575898/184987964-64477382-1df1-4512-9b77-9d6ec0eef470.jpg" width="60" height="60" />
 
-## nextjs login and registration
+<img src="https://github.com/lucaimbalzano/fe.house-network/assets/45575898/f141adcc-187f-4711-b59b-8c11920eb112" width="1200" height="700" />
+
+
+## nextjs front-end
+
 
 
 
@@ -25,6 +29,12 @@ $ systemctl start postgresql.service
 $ net start postgresql-[YOUR_VERSION]
 ```
 
+create to the root .env file:
+```
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/dev?schema=public"
+JWT_SECRET_KEY=my_ultra_secure_jwt_secret_key
+JWT_EXPIRES_IN=60
+```
 
 run the server in development mode:
 ```
