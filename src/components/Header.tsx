@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import {BsClockHistory} from "react-icons/bs"
 import { BiLogInCircle, BiUserCircle, BiMessageSquareDetail, BiX } from "react-icons/bi";
 import { IoSettingsSharp } from "react-icons/io5";
 import { RiDashboardFill } from "react-icons/ri"
@@ -67,23 +68,28 @@ const Header = ({ onPageSelect }) => {
                       <li>
                         <Link href="/profile">
                           <div onClick={() => handleMenuClick('profile')} className='flex flex-row justify-start items-center' >
-                            <BiUserCircle className='ml-3 mr-1'/> <p className="py-2 text-sm text-gray-700">Profile</p>
+                            <BiUserCircle className='ml-3 mr-1'/> <p className="py-2 text-sm text-gray-700 cursor-pointer">Profile</p>
                          </div>
                         </Link>
                       </li>
                       <li>
                         <div onClick={() => handleMenuClick('dashboard')} className='flex flex-row justify-start items-center' >
-                          <RiDashboardFill className='ml-3 mr-1'/> <p className="py-2 text-sm text-gray-700">Dashboard</p>
+                          <RiDashboardFill className='ml-3 mr-1'/> <p className="py-2 text-sm text-gray-700 cursor-pointer">Dashboard</p>
                         </div>
                       </li>
                       <li>
                         <div onClick={() => handleMenuClick('messages')} className='flex flex-row justify-start items-center' >
-                          <BiMessageSquareDetail className='ml-3 mr-1'/> <p className="py-2 text-sm text-gray-700">Messages</p>
+                          <BiMessageSquareDetail className='ml-3 mr-1'/> <p className="py-2 text-sm text-gray-700 cursor-pointer">Messages</p>
                         </div>
                       </li>
                       <li>
                         <div onClick={() => handleMenuClick('settings')} className='flex flex-row justify-start items-center' >
-                          <IoSettingsSharp className='ml-3 mr-1'/> <p className="py-2 text-sm text-gray-700">Settings</p>
+                          <IoSettingsSharp className='ml-3 mr-1'/> <p className="py-2 text-sm text-gray-700 cursor-pointer">Settings</p>
+                        </div>
+                      </li>
+                      <li>
+                        <div onClick={() => handleMenuClick('settings')} className='flex flex-row justify-start items-center' >
+                          <BsClockHistory className='ml-3 mr-1 text-sm font-semibold'/> <p className="py-2 text-sm text-gray-700 cursor-pointer">Scrape History</p>
                         </div>
                       </li>
                       <li>
