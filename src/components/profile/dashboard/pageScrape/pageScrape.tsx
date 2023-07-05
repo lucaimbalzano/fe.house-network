@@ -6,14 +6,15 @@ import { FlowInputSchema, FlowInputScraper } from '@/lib/validations/flowInputSc
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useEffect, useState } from 'react'
 import { FormProvider, useForm, SubmitHandler } from 'react-hook-form'
-import {BsFillLockFill, BsFillPlayCircleFill, BsFillStopCircleFill, BsFillPauseCircleFill} from 'react-icons/bs'
+import {BsHousesFill ,BsFillLockFill, BsFillPlayCircleFill, BsFillStopCircleFill, BsFillPauseCircleFill} from 'react-icons/bs'
 import {TbNumbers} from 'react-icons/tb'
 import {CgArrangeFront} from 'react-icons/cg'
 import { FaFileContract} from 'react-icons/fa'
-import {BiTimeFive, BiCodeCurly, BiUserCircle, BiMessageRoundedCheck, BiMessageRoundedDetail} from 'react-icons/bi'
+import {BiTimer, BiTimeFive, BiCodeCurly, BiUserCircle, BiMessageRoundedCheck, BiMessageRoundedDetail} from 'react-icons/bi'
+import { SiGooglemessages } from 'react-icons/si'
 import {RiRefreshFill} from 'react-icons/ri'
 import {IoMdOptions} from 'react-icons/io'
-import {MdVideoSettings} from 'react-icons/md'
+import {MdError,MdFindInPage ,MdVideoSettings} from 'react-icons/md'
 import FormDropDown from '@/components/FormDropDown';
 import { FlowInputScraperResponse } from '@/lib/types/flowInputScraper';
 import  useStore  from '@/store';
@@ -198,6 +199,35 @@ export default function PageScrape() {
             data-te-ripple-color="light">
             <MdVideoSettings />
           </button>
+     </div>
+     <div>
+     <div className="border-b font-light dark:border-neutral-300 flex mt-5">
+                 <div className="px-6 py-4">
+                    <div className='flex justify-center items-center'>
+                      <BiTimer className='text-gray-600'/> <div className='ml-1'>0</div> 
+                    </div>
+                  </div>
+                  <div className="px-6 py-4">
+                    <div className='flex justify-center items-center'>
+                      <MdFindInPage className='text-gray-600'/> <div className='ml-1'>0</div> 
+                    </div>
+                  </div>
+                  <div className="px-6 py-4">
+                    <div className='flex justify-center items-center'>
+                      <SiGooglemessages className='text-gray-600'/> <div className='ml-1'>0</div> 
+                    </div>
+                  </div>
+                  <div className="px-6 py-4">
+                    <div className='flex justify-center items-center'>
+                      <BsHousesFill className='text-gray-600'/> <div className='ml-1'>0</div> 
+                    </div>
+                  </div>
+                  <div className="px-6 py-4">
+                    <div className='flex justify-center items-center'>
+                      <MdError className='text-red-600'/> <div className='ml-1'>!</div> 
+                    </div>
+                  </div>
+      </div>
      </div>
     </div>
   )

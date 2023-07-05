@@ -23,13 +23,14 @@ const HomepagePresentation: React.FC = () => {
 
            <div className="md:hidden bg-gradient-to-tr from-[#0a7f94] to-gray-200 h-screen h-1/2">
             <div className="flex flex-col justify-center items-center h-full">
+            <Image className="text-white font-bold text-4xl font-sans" src="/img/house-net.png" alt="house NET" width={70} height={65} />
               <h1 className="text-white font-bold text-4xl font-sans">House</h1>
               <h1 className="text-[#cfd7d9] font-bold text-4xl font-sans">NETWORK</h1>
               <p className="text-white mt-1">Your Automation tool.</p>
               <p className="text-white mt-1">The machine is the new employee.</p>
             </div>
           </div>
-            <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
+          <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
               <Image className="text-white font-bold text-4xl font-sans" src="/img/house-net.png" alt="house NET" width={300} height={250} />
             </div>
           </div>

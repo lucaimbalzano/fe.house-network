@@ -41,7 +41,7 @@ export async function middleware(req: NextRequest) {
 
 //2) FASE IN CUI SI PUO ACCEDERE e RITORNO DELLUTENTE VERIFICATO 
   const response = NextResponse.next();
-  const allowedOrigins = process.env.NODE_ENV === 'production' ? ['https://www.site.com'] : ['http://localhost"3000', 'http://127.0.0.1:8000']
+  const allowedOrigins = process.env.NODE_ENV === 'production' ? ['https://www.site.com'] : ['http://localhost"3000', 'http://127.0.0.1:8000', 'https://6f16-2-233-119-175.ngrok-free.app']
   const origin = req.headers.get('origin')
 
   if (origin && !allowedOrigins.includes(origin)){
