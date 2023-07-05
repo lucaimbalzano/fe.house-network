@@ -117,14 +117,15 @@ export default function PageScrape() {
             
             <div className='flex-col items-center py-2 px-3 mb-4  sm:ml-5 sm:mr-5 '>
             <div className="flex items-center mb-4">
-            <FormInput type="checkbox" name="message"/>
-              <div className='inline-flex '>
-                <label  className="flex ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"> <BiMessageRoundedCheck className="mr-1 h-5 w-5 text-gray-400 "/> <div className='text-gray-400'>Whatsapp msg </div></label>
+            
+              <div className='inline-flex'>
+              <FormInput type="checkbox" name="message"/>
+                <div  className="flex ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"> <BiMessageRoundedCheck className="mr-1 h-5 w-5 text-gray-400 "/> <div className='text-gray-400'>Whatsapp msg </div></div>
               </div>
             </div>
             <div className="flex items-center mb-4">
-            <FormInput type="checkbox" name="messageWebSite"/>
               <div className='inline-flex'>
+              <FormInput type="checkbox" name="messageWebSite"/>
                 <label  className="flex ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"> <BiMessageRoundedDetail className="mr-1 h-5 w-5 text-gray-400"/><div className='text-gray-400'>Website msg </div></label>
               </div>
             </div>
