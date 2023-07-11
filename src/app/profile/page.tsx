@@ -37,7 +37,7 @@ export default function ProfilePage() {
       <div className="flex">
         <div className="">
         </div>
-        <div className="bg-ct-dark-100 h-screen flex justify-center w-full extra-small-container">
+        <div className="bg-ct-dark-100 h-screen flex justify-center w-auto w-full">
           {renderSelectedPage()}
         </div>
       </div>

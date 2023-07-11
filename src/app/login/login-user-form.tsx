@@ -63,7 +63,7 @@ export default function LoginUserForm() {
     }
   
     const onSubmitHandler: SubmitHandler<LoginUserInput> = (values) => {
-      console.log(values)
+      //TODO understand if webpack can be scraped from
       LoginUserFunction(values);
     };    
 

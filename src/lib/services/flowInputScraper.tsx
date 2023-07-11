@@ -15,6 +15,6 @@ export async function FlowInputScraperPush(credentials: string): Promise<FlowInp
     },
     body: credentials,
   });
-  console.log('response: '+response)
+  console.log('response: '+JSON.stringify(response));
   return handleResponse<FlowInputScraperResponse>(response).then((data) => data.data.flowInputScraper);
 }

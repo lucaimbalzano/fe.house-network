@@ -22,7 +22,8 @@ export const FlowInputSchema =  z.object({
     .optional(),
 
     message: z.boolean({ required_error: 'Message is required'}).optional(),
-    messageWebSite: z.boolean({ required_error: 'Message is required'}).optional()
+    messageWebSite: z.boolean({ required_error: 'Message is required'}).optional(),
+    default: z.boolean({ required_error: 'Default Setting Option is required'}).optional()
 })
 
 

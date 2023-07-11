@@ -12,6 +12,17 @@ html {
 
 
 @layer components {
+    
+    .select-none-input{
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari, Chrome, Opera, Samsung */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Edge, IE */
+        user-select: none; /* Modern browsers */
+        pointer-events: none;
+    }
+
     @media (max-width: 382px) {
         .custom-smaller-width {
             width: auto !important; 
@@ -51,7 +62,6 @@ html {
     @media (max-width: 375px) {
         .extra-small-container {
             width: 360px !important; 
-            margin-right:  10px;
         }
 
         .small-cards-width {

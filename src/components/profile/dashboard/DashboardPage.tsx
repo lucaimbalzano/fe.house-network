@@ -11,7 +11,7 @@ import PageScrape from './pageScrape/pageScrape'
  
 export default function DashboardPage() {
   return (
-    <div className='ml-18 p-10'>
+    <div className='pt-10 pl-5 pr-5'>
      <PageScrape />
     <div className='flex justify-between;'>
       {/* <Cards /> */}
