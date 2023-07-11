@@ -13,6 +13,19 @@ import { useRouter } from "next/navigation";
 export default function ProfilePage() {
   const router = useRouter();
   const [selectedPage, setSelectedPage] = useState("");
+  const [isSmallerThan426, setIsSmallerThan426] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallerThan426(window.innerWidth <= 426);
+    };
+    
+    handleResize(); // execution only the first time for the initial value of the width
+    window.addEventListener("resize", handleResize); // added listener in order to call handleResize each time the with is changing
+    return () => {
+      window.removeEventListener("resize", handleResize); // removing the listener to clean the memory
+    };
+  }, []);
 
 
   const renderSelectedPage = () => {
@@ -37,7 +50,9 @@ export default function ProfilePage() {
       <div className="flex">
         <div className="">
         </div>
-        <div className="bg-ct-dark-100 h-screen flex justify-center w-auto w-full">
+        <div className={`${
+        isSmallerThan426 ? "bg-ct-dark-100 h-screen flex justify-center w-auto" : "bg-ct-dark-100 h-screen flex justify-center w-auto w-full"
+      }`}>
           {renderSelectedPage()}
         </div>
       </div>
@@ -45,3 +60,5 @@ export default function ProfilePage() {
     </>
   );
 }
+
+
