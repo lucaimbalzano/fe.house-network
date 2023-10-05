@@ -11,8 +11,7 @@ export const FlowInputSchema =  z.object({
     .url({ message: "Invalid URL" }),
     username: z.string({ required_error: 'Username is required'})
                 .min(1, "Full username is required"),
-    password: z.string({ required_error: 'password is required'})
-                .min(1, "password is required"),
+    password: z.string().min(1, "password is required"),
 
     refreshSearch: z.object({
         poolPage: z.string({ required_error: 'Pool of page to refresh is required' }).min(1, "At least a Number is required").optional(),

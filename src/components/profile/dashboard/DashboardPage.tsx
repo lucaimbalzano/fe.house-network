@@ -4,7 +4,7 @@ import React from 'react'
 import LineChart from './LineChart'
 import PieChart from './PieChart'
 import Cards from './Cards'
-import Table from '@/components/Table'
+// import Table from '@/components/Table'
 import './dashboard.css' 
 
 import PageScrape from './pageScrape/pageScrape'
