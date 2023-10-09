@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  postgres_fe:
+    networks:
+    - fehouse-network_default
+    image: postgres
+    ports:
+      - "5430:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  react-app:
+    networks:
+      - fehouse-network_default
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_DATABASE_URL: ${DATABASE_URL}
+    depends_on:
+      - postgres_fe
+    volumes:
+      - ./prisma:/app/prisma # Monta la directory Prisma nel contenitore React
+    command: sh -c "npx prisma migrate dev --preview-feature && npm run dev" # Esegui il comando di migrazione Prisma durante l'avvio del contenitore
+
+volumes:
+  postgres_data:
+
+networks:
+  fehouse-network_default:
+    external: true
